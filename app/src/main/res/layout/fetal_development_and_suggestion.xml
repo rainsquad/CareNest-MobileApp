@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baseline value" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Baseline Fetal Heart Rate (FHR) (beats per minute)"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/baseline_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="53"
+            android:maxEms="224" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Accelerations" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of accelerations per second"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/accelerations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fetal movement" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of fetal movements per second"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/fetal_movement"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0"
+          />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Uterine contractions" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of uterine contractions per second"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/uterine_contractions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Light decelerations" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of light decelerations (LDs) per second"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/light_decelerations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Severe decelerations" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of severe decelerations (SDs) per second"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/severe_decelerations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prolongued decelerations" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of prolonged decelerations (PDs) per second"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/prolongued_decelerations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Abnormal short term variability" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Percentage of time with abnormal short term variability"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/abnormal_short_term_variability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="6"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mean value of short term variability" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mean value of short term variability"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/mean_value_of_short_term_variability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Percentage of time with abnormal long term variability" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Percentage of time with abnormal long term variability"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/percentage_of_time_with_abnormal_long_term_variability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mean value of long term variability" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mean value of long term variability"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/mean_value_of_long_term_variability"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram width" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Width of histogram made using all values from a record"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_width"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="2"
+            android:maxEms="252" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram min" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram minimum value"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_min"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="25"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram max" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram maximum value"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_max"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="61" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram number of peaks" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of peaks in the exam histogram"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_number_of_peaks"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram number of zeroes" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Number of zeros in the exam histogram"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_number_of_zeroes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0"
+            android:maxEms="14" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram mode" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram mode"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="30"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram mean" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram mean"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_mean"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="37"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram median" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram median"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_median"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="39" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram variance" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram variance"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_variance"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:minEms="0" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram tendency" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Histogram tendency"
+            android:textColor="#0055FF"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/histogram_tendency"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberSigned"
+            android:minEms="-1"
+            android:maxEms="1" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/output"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:text="Suggestion"-->
+<!--            android:textSize="18sp" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/suggetions_prob"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+
+        <ImageView
+            android:id="@+id/plot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <Button
+            android:id="@+id/analyze_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Analyze" />
+
+    </LinearLayout>
+</ScrollView>

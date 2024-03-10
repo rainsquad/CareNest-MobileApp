@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Nutrition"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:textStyle="bold"
+            android:text="Personalized Your Nutrition Plan"
+            android:textSize="16sp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/food_suggest_bg"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:textStyle="bold"
+            android:text="we'll use this information to personalize your nutrition plan"
+            android:textSize="14sp" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:paddingVertical="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:paddingVertical="10dp"
+                android:text="Weight (kilograms)"
+                android:gravity="left"/>
+            <EditText
+
+                android:id="@+id/weight_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:padding="10dp"
+                android:background="@drawable/bg_edit_text"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:paddingVertical="10dp"
+                android:text="Height (centimeters)"
+                android:gravity="left" />
+            <EditText
+                android:id="@+id/height_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:padding="10dp"
+                android:background="@drawable/bg_edit_text"
+                android:inputType="numberDecimal" />
+
+           <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingVertical="10dp"
+                android:text="Age (years)"
+                android:gravity="left" />
+            <EditText
+                android:id="@+id/age_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:padding="10dp"
+                android:background="@drawable/bg_edit_text"
+                android:inputType="number" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:paddingVertical="10dp"
+                android:text="Current week of pregnancy (weeks)"
+                android:gravity="left" />
+            <EditText
+                android:id="@+id/weeks_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="3"
+                android:padding="10dp"
+                android:background="@drawable/bg_edit_text"
+                android:inputType="number" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Activity level"
+                android:textAlignment="center" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Rate of weight gain"
+                android:textAlignment="center" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/activity_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Spinner
+                android:id="@+id/gain_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/analyze_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:text="Analyze" />
+
+
+        <TextView
+            android:id="@+id/output"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Suggestion"
+            android:textSize="18sp" />
+    </LinearLayout>
+    </ScrollView>
+</FrameLayout>
