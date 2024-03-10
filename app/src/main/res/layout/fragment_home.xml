@@ -50,18 +50,14 @@
 
         </androidx.cardview.widget.CardView>
 
+
+
     <FrameLayout
         android:id="@+id/container"
+        android:layout_below="@+id/titleCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <RelativeLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/titleCard"
-            android:layout_centerInParent="true"
-
-            >
 
 
             <HorizontalScrollView
@@ -79,10 +75,8 @@
                     <androidx.cardview.widget.CardView
                         android:id="@+id/crdRealTimeStress"
                         android:layout_width="400dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="400dp"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:background="#333333"
 
                         >
 
@@ -102,21 +96,12 @@
                                 android:id="@+id/txtRealTimeEmotion"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_above="@+id/btnNext"
                                 android:fontFamily="casual"
+                                android:layout_alignParentBottom="true"
                                 android:gravity="center"
                                 android:text="Real Time Emotion Detection"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
-                            <Button
-                                android:id="@+id/btnNext"
-                                android:layout_width="100dp"
-                                android:layout_height="40dp"
-                                android:text="NEXT"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentBottom="true"
-
-                                />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
 
@@ -126,9 +111,7 @@
                         android:layout_width="400dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:background="#333333"
-                        app:cardCornerRadius="0dp">
+                  >
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -162,9 +145,7 @@
                         android:layout_width="400dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:background="#333333"
-                        app:cardCornerRadius="0dp">
+                       >
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -196,9 +177,7 @@
                         android:layout_width="400dp"
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginEnd="0dp"
-                        android:background="#333333"
-                        app:cardCornerRadius="0dp">
+                       >
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -228,7 +207,6 @@
             </HorizontalScrollView>
 
 
-        </RelativeLayout>
     </FrameLayout>
 
     </RelativeLayout>
