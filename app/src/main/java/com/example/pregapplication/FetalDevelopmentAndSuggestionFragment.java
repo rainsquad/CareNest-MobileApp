@@ -57,10 +57,14 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
     Button fetalAnalyzeButton;
     String fetalSuggestions;
     TextView suggetionsProb;
+
+    ImageView plotView;
     
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fetal_development_and_suggestion, container, false);
+
+        plotView = v.findViewById(R.id.plot);
 
         baselineValueEditText = v.findViewById(R.id.baseline_value);
         accelerationsEditText = v.findViewById(R.id.accelerations);
@@ -169,6 +173,8 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
                     public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
                         String responseBody = response.body().string();
                         try {
+
+
                             // Parse the response body as a JSON object
 //                            JSONObject jsonObject = new JSONObject(responseBody);
 //                            JSONArray b64_plot_data = jsonObject.getJSONArray("b64_plot");
@@ -178,10 +184,11 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
                             // Parse the response body as a JSON object
                             JSONObject jsonObject = new JSONObject(responseBody);
 
-                            // Get the base64 encoded string
+
+
                             String b64_plot_data = jsonObject.getString("b64_plot");
-
-
+                            byte[] decodedString = Base64.decode(b64_plot_data, Base64.DEFAULT);
+                            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
                             // Remove the "data:image/png;base64," part if it's included in the response
 //                            b64_plot_data = b64_plot_data.replace("data:image/png;base64,", "").replace("data:image/jpeg;base64,", "");
@@ -201,8 +208,10 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
                             requireActivity().runOnUiThread(() -> {
 //                                suggetionsProb.setText(finalString);
                                 Toast.makeText(getContext(), ""+b64_plot_data.length(), Toast.LENGTH_SHORT).show();
-                            });
+                                plotView.setImageBitmap(decodedByte);
+                                System.out.println(b64_plot_data);
 
+                            });
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

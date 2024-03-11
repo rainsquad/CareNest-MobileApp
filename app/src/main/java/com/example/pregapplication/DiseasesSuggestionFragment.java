@@ -1,12 +1,15 @@
 package com.example.pregapplication;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +49,44 @@ public class DiseasesSuggestionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.diseases_suggestion, container, false);
+
+        diseasesAnalyzeButton = v.findViewById(R.id.analyze_button);
+        // Initialize the PopupWindow
+        View popupView = inflater.inflate(R.layout.popup_window, null);
+        final PopupWindow popupWindow = new PopupWindow(
+                popupView,
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+
+
+
+        ImageView closeIcon = popupView.findViewById(R.id.closeIcon);
+        closeIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupWindow.dismiss();
+            }
+        });
+
+        // Set up the "Got It" button click listener
+        Button gotItButton = popupView.findViewById(R.id.gotItButton);
+        gotItButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Handle "Got It" button click
+                popupWindow.dismiss();
+            }
+        });
+
+
+
+        diseasesAnalyzeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                popupWindow.showAtLocation(v, Gravity.CENTER, 0, 0);
+            }
+        });
 
         diseasesAnalyzeButton = v.findViewById(R.id.analyze_button);
 

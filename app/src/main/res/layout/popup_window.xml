@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg"
+
+    >
+
+    <!-- res/layout/popup_layout.xml -->
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Close icon in the top right corner -->
+        <ImageView
+            android:id="@+id/closeIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@android:drawable/ic_menu_close_clear_cancel"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp"
+            android:clickable="true"
+            android:onClick="onCloseClick"/>
+
+        <!-- Content of your popup goes here -->
+        <!-- For example, a TextView -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your Popup Content Goes Here"
+            android:layout_centerInParent="true"
+            android:textAlignment="center"/>
+
+        <!-- "Got It" button at the center bottom -->
+        <Button
+            android:id="@+id/gotItButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Got It"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="16dp"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

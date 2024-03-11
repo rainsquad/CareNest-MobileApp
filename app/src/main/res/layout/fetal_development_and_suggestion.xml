@@ -3,9 +3,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Fetal Development Tracker"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:padding="20dp"
+            />
+
+        <TextView
+            android:id="@+id/txtSubTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:text="Based on Your Inputs"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:padding="10dp"
+            />
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/fetal_development_2"
+            android:scaleType="fitXY"
+            />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="10dp"
         android:orientation="vertical">
 
         <TextView
@@ -217,11 +250,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:visibility="gone"
+            android:text="2"
             android:minEms="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram width" />
 
         <TextView
@@ -229,6 +265,7 @@
             android:layout_height="wrap_content"
             android:text="Width of histogram made using all values from a record"
             android:textColor="#0055FF"
+            android:visibility="gone"
             android:textSize="13sp" />
 
         <EditText
@@ -236,18 +273,22 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:visibility="gone"
             android:minEms="2"
+            android:text="2"
             android:maxEms="252" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram min" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Histogram minimum value"
+            android:visibility="gone"
             android:textColor="#0055FF"
             android:textSize="13sp" />
 
@@ -255,18 +296,22 @@
             android:id="@+id/histogram_min"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:inputType="numberDecimal"
+            android:text="2"
             android:minEms="25"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram max" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Histogram maximum value"
+            android:visibility="gone"
             android:textColor="#0055FF"
             android:textSize="13sp" />
 
@@ -274,17 +319,21 @@
             android:id="@+id/histogram_max"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:inputType="numberDecimal"
+            android:text="2"
             android:minEms="61" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram number of peaks" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Number of peaks in the exam histogram"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -293,17 +342,21 @@
             android:id="@+id/histogram_number_of_peaks"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:inputType="numberDecimal"
+            android:text="2"
             android:minEms="0" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram number of zeroes" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Number of zeros in the exam histogram"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -312,18 +365,22 @@
             android:id="@+id/histogram_number_of_zeroes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:inputType="numberDecimal"
+            android:text="2"
             android:minEms="0"
             android:maxEms="14" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram mode" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram mode"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -333,16 +390,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:visibility="gone"
+            android:text="2"
             android:minEms="30"/>
 
         <TextView
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:text="Histogram mean" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram mean"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -350,18 +411,22 @@
         <EditText
             android:id="@+id/histogram_mean"
             android:layout_width="match_parent"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:text="2"
             android:minEms="37"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram median" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram median"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -370,17 +435,21 @@
             android:id="@+id/histogram_median"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:inputType="numberDecimal"
+            android:text="2"
             android:minEms="39" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram variance" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram variance"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -390,16 +459,20 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
+            android:visibility="gone"
+            android:text="40"
             android:minEms="0" />
 
         <TextView
             android:layout_width="wrap_content"
+            android:visibility="gone"
             android:layout_height="wrap_content"
             android:text="Histogram tendency" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Histogram tendency"
             android:textColor="#0055FF"
             android:textSize="13sp" />
@@ -409,6 +482,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="numberSigned"
+            android:visibility="gone"
+            android:text="2"
             android:minEms="-1"
             android:maxEms="1" />
 
@@ -424,18 +499,29 @@
 <!--            android:id="@+id/suggetions_prob"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="wrap_content" />-->
+<HorizontalScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
 
-        <ImageView
-            android:id="@+id/plot"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    >
+
+    <ImageView
+        android:id="@+id/plot"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        />
+</HorizontalScrollView>
+
+
 
         <Button
             android:id="@+id/analyze_button"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Analyze" />
 
+    </LinearLayout>
     </LinearLayout>
 </ScrollView>
