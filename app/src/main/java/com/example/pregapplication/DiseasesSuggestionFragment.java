@@ -1,5 +1,6 @@
 package com.example.pregapplication;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.PopupWindow;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,14 +44,14 @@ public class DiseasesSuggestionFragment extends Fragment {
     // Declare the global variables
     Button diseasesAnalyzeButton;
     String diseasesSuggestion;
-
+    ScrollView layout;
     // Initialize an ArrayList to hold the checkbox values
     ArrayList<Integer> checkboxValues = new ArrayList<>();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.diseases_suggestion, container, false);
-
+        layout = v.findViewById(R.id.svLayout);
         diseasesAnalyzeButton = v.findViewById(R.id.analyze_button);
         // Initialize the PopupWindow
         View popupView = inflater.inflate(R.layout.popup_window, null);
@@ -61,23 +63,7 @@ public class DiseasesSuggestionFragment extends Fragment {
 
 
 
-        ImageView closeIcon = popupView.findViewById(R.id.closeIcon);
-        closeIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popupWindow.dismiss();
-            }
-        });
 
-        // Set up the "Got It" button click listener
-        Button gotItButton = popupView.findViewById(R.id.gotItButton);
-        gotItButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Handle "Got It" button click
-                popupWindow.dismiss();
-            }
-        });
 
 
 
@@ -670,12 +656,65 @@ public class DiseasesSuggestionFragment extends Fragment {
                         @Override
                         public void run() {
                             TextView textView = v.findViewById(R.id.output);
-                            textView.setText(diseasesSuggestion);
+                            textView.setText("Our analysis suggests that you may be experiencing symptoms related to s"+diseasesSuggestion);
+                            ShowPopup(diseasesSuggestion);
                         }
                     });
                 }
             });
         });
         return v;
+    }
+
+
+    private void ShowPopup(String Data) {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.popup_window_disease_suggestion, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
+        boolean focusable = true;
+        TextView result;
+
+
+        result = popUpView.findViewById(R.id.txtResult);
+
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                result.setText(Data);
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
+
+            }
+        });
+
+        TextView Gotit;
+        TextView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.btnfollow);
+        iconclose = popUpView.findViewById(R.id.txtclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+            }
+        });
+
+
     }
 }

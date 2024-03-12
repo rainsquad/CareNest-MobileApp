@@ -1,15 +1,23 @@
 package com.example.pregapplication;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.util.Base64;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -58,14 +66,17 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
     String fetalSuggestions;
     TextView suggetionsProb;
 
-    ImageView plotView;
-    
+
+    LinearLayout layout;
+
+    Dialog myDialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fetal_development_and_suggestion, container, false);
 
-        plotView = v.findViewById(R.id.plot);
 
+        layout = v.findViewById(R.id.linLayout);
         baselineValueEditText = v.findViewById(R.id.baseline_value);
         accelerationsEditText = v.findViewById(R.id.accelerations);
         fetalMovementEditText = v.findViewById(R.id.fetal_movement);
@@ -88,11 +99,16 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
         histogramVarianceEditText = v.findViewById(R.id.histogram_variance);
         histogramTendencyEditText = v.findViewById(R.id.histogram_tendency);
         fetalAnalyzeButton = v.findViewById(R.id.analyze_button);
-        
+
 //        suggetionsProb = v.findViewById(R.id.suggetions_prob);
 
         // Set a click listener for the submit button
         fetalAnalyzeButton.setOnClickListener(view -> {
+            final ProgressDialog progressDialog = new ProgressDialog(getContext());
+            progressDialog.setTitle("Please wait");
+            progressDialog.setMessage("Loading...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
 
             // Get the user inputs from the edit texts
             String baselineValue = baselineValueEditText.getText().toString();
@@ -120,12 +136,12 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
             // Validate the user inputs
             if (
                     baselineValue.isEmpty() || accelerations.isEmpty() || fetalMovement.isEmpty() || uterineContractions.isEmpty() ||
-                    lightDecelerations.isEmpty() || severeDecelerations.isEmpty() || prolonguedDecelerations.isEmpty() || abnormalShortTermVariability.isEmpty() ||
-                    meanValueOfShortTermVariability.isEmpty() || percentageOfTimeWithAbnormalLongTermVariability.isEmpty() || meanValueOfLongTermVariability.isEmpty() ||
-                    histogramWidth.isEmpty() || histogramMin.isEmpty() || histogramMax.isEmpty() || histogramNumberOfPeaks.isEmpty() || histogramNumberOfZeroes.isEmpty() ||
-                    histogramMode.isEmpty() || histogramMean.isEmpty() || histogramMedian.isEmpty() || histogramVariance.isEmpty() || histogramTendency.isEmpty()
+                            lightDecelerations.isEmpty() || severeDecelerations.isEmpty() || prolonguedDecelerations.isEmpty() || abnormalShortTermVariability.isEmpty() ||
+                            meanValueOfShortTermVariability.isEmpty() || percentageOfTimeWithAbnormalLongTermVariability.isEmpty() || meanValueOfLongTermVariability.isEmpty() ||
+                            histogramWidth.isEmpty() || histogramMin.isEmpty() || histogramMax.isEmpty() || histogramNumberOfPeaks.isEmpty() || histogramNumberOfZeroes.isEmpty() ||
+                            histogramMode.isEmpty() || histogramMean.isEmpty() || histogramMedian.isEmpty() || histogramVariance.isEmpty() || histogramTendency.isEmpty()
             ) {
-
+                progressDialog.dismiss();
                 // If any input is empty, show a toast message
                 Toast.makeText(getContext(), "Please enter all the required inputs", Toast.LENGTH_SHORT).show();
 
@@ -164,6 +180,7 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
                         requireActivity().runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
+                                progressDialog.dismiss();
                                 Toast.makeText(getContext(), "Network not found!", Toast.LENGTH_LONG).show();
                             }
                         });
@@ -174,45 +191,23 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
                         String responseBody = response.body().string();
                         try {
 
-
-                            // Parse the response body as a JSON object
-//                            JSONObject jsonObject = new JSONObject(responseBody);
-//                            JSONArray b64_plot_data = jsonObject.getJSONArray("b64_plot");
-//
-//                            String finalString = b64_plot_data.toString();
-
-                            // Parse the response body as a JSON object
                             JSONObject jsonObject = new JSONObject(responseBody);
-
 
 
                             String b64_plot_data = jsonObject.getString("b64_plot");
                             byte[] decodedString = Base64.decode(b64_plot_data, Base64.DEFAULT);
                             Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
 
-                            // Remove the "data:image/png;base64," part if it's included in the response
-//                            b64_plot_data = b64_plot_data.replace("data:image/png;base64,", "").replace("data:image/jpeg;base64,", "");
-
-                            // Decode the base64 string
-//                            byte[] decodedString = Base64.decode(b64_plot_data, Base64.DEFAULT);
-
-                            // Convert decoded byte array into Bitmap
-//                            Bitmap decodedByte = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-
-                            // Set the Bitmap to ImageView
-//                            ImageView imageView = (ImageView) getView().findViewById(R.id.plot); // Replace with your ImageView ID
-//                            imageView.setImageBitmap(decodedByte);
-
-
 
                             requireActivity().runOnUiThread(() -> {
-//                                suggetionsProb.setText(finalString);
-                                Toast.makeText(getContext(), ""+b64_plot_data.length(), Toast.LENGTH_SHORT).show();
-                                plotView.setImageBitmap(decodedByte);
-                                System.out.println(b64_plot_data);
+
+
+                                progressDialog.dismiss();
+                                ShowPopup(decodedByte);
 
                             });
                         } catch (JSONException e) {
+                            progressDialog.dismiss();
                             e.printStackTrace();
                         }
                     }
@@ -220,5 +215,74 @@ public class FetalDevelopmentAndSuggestionFragment extends Fragment {
             }
         });
         return v;
+    }
+
+
+    private void ShowPopup(Bitmap decodeByte) {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.popup_window, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
+        boolean focusable = true;
+        ImageView plotView;
+
+        plotView = popUpView.findViewById(R.id.plotPopup);
+
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                plotView.setImageBitmap(decodeByte);
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
+
+            }
+        });
+
+        TextView Gotit;
+        TextView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.btnfollow);
+        iconclose = popUpView.findViewById(R.id.txtclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+                plotView.setImageBitmap(null);
+                clear();
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+                plotView.setImageBitmap(null);
+                clear();
+            }
+        });
+
+
+    }
+
+    private void clear()
+    {
+        baselineValueEditText.setText("");
+        accelerationsEditText.setText("");
+        fetalMovementEditText.setText("");
+        uterineContractionsEditText.setText("");
+        lightDecelerationsEditText.setText("");
+        lightDecelerationsEditText.setText("");
+        prolonguedDecelerationsEditText.setText("");
+        abnormalShortTermVariabilityEditText.setText("");
+        meanValueOfLongTermVariabilityEditText.setText("");
+        percentageOfTimeWithAbnormalLongTermVariabilityEditText.setText("");
+        meanValueOfLongTermVariabilityEditText.setText("");
     }
 }

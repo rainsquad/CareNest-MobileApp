@@ -5,6 +5,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -505,12 +506,12 @@
 
     >
 
-    <ImageView
-        android:id="@+id/plot"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:scaleType="fitXY"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/plot"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:scaleType="fitXY"-->
+<!--        />-->
 </HorizontalScrollView>
 
 
