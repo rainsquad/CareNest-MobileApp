@@ -1,5 +1,6 @@
 package com.example.pregapplication;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -222,6 +223,8 @@ public class DiseasesSuggestionFragment extends Fragment {
 
         // Set the listener to all checkboxes and initialize the ArrayList with default values (0)
         checkBox1.setOnCheckedChangeListener(listener);
+
+
         checkboxValues.add(0); // Default value for checkBox1
 
         checkBox2.setOnCheckedChangeListener(listener);
@@ -618,7 +621,11 @@ public class DiseasesSuggestionFragment extends Fragment {
         checkboxValues.add(0); // Default value for checkBox132
 
         diseasesAnalyzeButton.setOnClickListener(view -> {
-
+            final ProgressDialog progressDialog = new ProgressDialog(getContext());
+            progressDialog.setTitle("Please wait");
+            progressDialog.setMessage("Loading...");
+            progressDialog.setCancelable(false);
+            progressDialog.show();
             JSONObject json = new JSONObject();
             try {
                 json.put("symptoms", new JSONArray(checkboxValues));
@@ -645,6 +652,7 @@ public class DiseasesSuggestionFragment extends Fragment {
                         @Override
                         public void run() {
                             Toast.makeText(getContext(), "Network not found!", Toast.LENGTH_LONG).show();
+                            progressDialog.dismiss();
                         }
                     });
                 }
@@ -656,8 +664,10 @@ public class DiseasesSuggestionFragment extends Fragment {
                         @Override
                         public void run() {
                             TextView textView = v.findViewById(R.id.output);
-                            textView.setText("Our analysis suggests that you may be experiencing symptoms related to s"+diseasesSuggestion);
+                           // textView.setText("Our analysis suggests that you may be experiencing symptoms related to s"+diseasesSuggestion);
+                            progressDialog.dismiss();
                             ShowPopup(diseasesSuggestion);
+
                         }
                     });
                 }

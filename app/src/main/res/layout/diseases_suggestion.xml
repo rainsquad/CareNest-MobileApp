@@ -1183,7 +1183,9 @@
                             android:layout_marginTop="20dp"
                             android:textStyle="bold"
                             android:text="Suggestion"
-                            android:textSize="18sp" />
+                            android:textSize="18sp"
+                            android:visibility="gone"
+                            />
 
                         <androidx.appcompat.widget.AppCompatButton
                             android:id="@+id/analyze_button"
