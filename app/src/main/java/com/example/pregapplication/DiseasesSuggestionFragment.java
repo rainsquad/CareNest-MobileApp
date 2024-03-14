@@ -1,7 +1,9 @@
 package com.example.pregapplication;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -714,6 +716,8 @@ public class DiseasesSuggestionFragment extends Fragment {
             public void onClick(View v) {
 
                 popupWindow.dismiss();
+                onSearchButtonClick(Data);
+
 
             }
         });
@@ -726,5 +730,19 @@ public class DiseasesSuggestionFragment extends Fragment {
         });
 
 
+    }
+
+    public void onSearchButtonClick(String data) {
+        // Define the keyword to search for
+
+
+        // Construct the search URL
+        String searchUrl = "https://www.google.com/search?q=" + data + "+articles";
+
+        // Create an Intent with the ACTION_VIEW to open the browser
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl));
+
+        // Start the browser activity
+        startActivity(browserIntent);
     }
 }

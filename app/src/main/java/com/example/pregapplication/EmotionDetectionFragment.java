@@ -1,18 +1,25 @@
 package com.example.pregapplication;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.DrawableRes;
 import androidx.camera.core.ImageCaptureException;
 import androidx.camera.view.PreviewView;
 
@@ -21,6 +28,7 @@ import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.Preview;
 import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -59,6 +67,8 @@ public class EmotionDetectionFragment extends Fragment {
     private ImageCapture frameCapture;
 
     ArrayList<File> list;
+
+    ConstraintLayout layout;
     int lenseFace = CameraSelector.LENS_FACING_BACK;
 
     private static final long TIMEOUT_MILLIS = 800; // Timeout duration in milliseconds
@@ -72,7 +82,7 @@ public class EmotionDetectionFragment extends Fragment {
         previewView = v.findViewById(R.id.cameraPreviewView);
         cameraChangeBtn = v.findViewById(R.id.camera_change_btn);
         cameraChangeBtn.setOnClickListener(view -> changeCamera());
-
+        layout = v.findViewById(R.id.constLayout);
         cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext());
 
         // Initialize the frameCapture use case
@@ -187,11 +197,20 @@ public class EmotionDetectionFragment extends Fragment {
     }
 
     public void uploadToBackend() {
+
+
+        final ProgressDialog progressDialog = new ProgressDialog(getContext());
+        progressDialog.setTitle("Please wait");
+        progressDialog.setMessage("Analyzing Emotions...");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+
+
         OkHttpClient client = new OkHttpClient();
         // Initialize MultipartBody.Builder
         MultipartBody.Builder builder = new MultipartBody.Builder().setType(MultipartBody.FORM);
 
-        if (list.isEmpty()){
+        if (list.isEmpty()) {
             return;
         }
 
@@ -216,6 +235,7 @@ public class EmotionDetectionFragment extends Fragment {
 
                 // Handle the failure
                 e.printStackTrace();
+                progressDialog.dismiss();
             }
 
             @Override
@@ -230,7 +250,9 @@ public class EmotionDetectionFragment extends Fragment {
                     requireActivity().runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            textView.setText(responseBody);
+
+                            ShowPopup(responseBody);
+                            progressDialog.dismiss();
                         }
                     });
                 }
@@ -241,7 +263,7 @@ public class EmotionDetectionFragment extends Fragment {
     // Method to start the frame recording
     public void startRecording() {
         list = new ArrayList<>();
-            startCapturing();
+        startCapturing();
     }
 
     // Method to stop the frame recording
@@ -265,4 +287,78 @@ public class EmotionDetectionFragment extends Fragment {
             isAnalyzing = false;
         }
     }
+
+
+    private void ShowPopup(String emotion) {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.popup_window_emotion_detection, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
+        boolean focusable = true;
+        ImageView emotionIcon;
+        TextView txtResult;
+        emotionIcon = popUpView.findViewById(R.id.emotionIcon);
+        txtResult = popUpView.findViewById(R.id.txtResult);
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                if (emotion.equals("Face data error!")) {
+                    emotionIcon.setImageResource(R.drawable.ic_error);
+                } else if (emotion.equals("Angry")) {
+                    emotionIcon.setImageResource(R.drawable.icos_angry);
+                } else if (emotion.equals("Disgust")) {
+                    emotionIcon.setImageResource(R.drawable.icon_disgust);
+                } else if (emotion.equals("Fear")) {
+                    emotionIcon.setImageResource(R.drawable.icon_fear);
+                } else if (emotion.equals("Happy")) {
+                    emotionIcon.setImageResource(R.drawable.icon_happy);
+                } else if (emotion.equals("Neutral")) {
+                    emotionIcon.setImageResource(R.drawable.icon_sad);
+                }else if (emotion.equals("Sad"))
+                {
+                    emotionIcon.setImageResource(R.drawable.icon_sad);
+                } else if (emotion.equals("Surprise")) {
+                    emotionIcon.setImageResource(R.drawable.icon_surprised);
+                }
+
+                txtResult.setText(emotion);
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
+
+            }
+        });
+
+        TextView Gotit;
+        TextView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.btnfollow);
+        iconclose = popUpView.findViewById(R.id.txtclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+                emotionIcon.setImageBitmap(null);
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+                emotionIcon.setImageBitmap(null);
+
+            }
+        });
+
+
+    }
+
 }

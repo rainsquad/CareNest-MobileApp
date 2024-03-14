@@ -1,13 +1,18 @@
 package com.example.pregapplication;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +42,8 @@ public class FoodSuggestionFragment extends Fragment {
     private TextView outputTextView;
     private String foodSuggestions;
 
+    LinearLayout layout;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.food_suggestion, container, false);
@@ -46,7 +53,7 @@ public class FoodSuggestionFragment extends Fragment {
 //                    new StrictMode.ThreadPolicy.Builder().permitAll().build();
 //            StrictMode.setThreadPolicy(gfgPolicy);
 //        }
-
+        layout = view.findViewById(R.id.layout);
         weightEditText = view.findViewById(R.id.weight_edit_text);
         heightEditText = view.findViewById(R.id.height_edit_text);
         ageEditText = view.findViewById(R.id.age_edit_text);
@@ -108,11 +115,79 @@ public class FoodSuggestionFragment extends Fragment {
                         foodSuggestions = response.body().string();
                         requireActivity().runOnUiThread(() -> {
                             outputTextView.setText(foodSuggestions);
+                            ShowPopup(foodSuggestions);
                         });
                     }
                 });
             }
         });
         return view;
+    }
+
+
+    private void ShowPopup(String Data) {
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(getContext().LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.popup_window_food_suggestion, null);
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+
+        boolean focusable = true;
+        TextView result;
+
+
+        result = popUpView.findViewById(R.id.txtResult);
+
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+
+                result.setText(Data);
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
+
+            }
+        });
+
+        TextView Gotit;
+        TextView iconclose;
+
+        Gotit = popUpView.findViewById(R.id.btnfollow);
+        iconclose = popUpView.findViewById(R.id.txtclose);
+
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+                onSearchButtonClick(Data);
+
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+            }
+        });
+
+
+    }
+    public void onSearchButtonClick(String data) {
+        // Define the keyword to search for
+
+
+        // Construct the search URL
+        String searchUrl = "https://www.google.com/search?q=" + data + "+articles";
+
+        // Create an Intent with the ACTION_VIEW to open the browser
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(searchUrl));
+
+        // Start the browser activity
+        startActivity(browserIntent);
     }
 }
