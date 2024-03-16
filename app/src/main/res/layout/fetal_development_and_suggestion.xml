@@ -57,10 +57,12 @@
         <EditText
             android:id="@+id/baseline_value"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
             android:inputType="numberDecimal"
-            android:minEms="53"
-            android:maxEms="224" />
+            android:background="@drawable/bg_edit_text"
+            />
 
         <TextView
             android:layout_width="wrap_content"
@@ -77,7 +79,10 @@
         <EditText
             android:id="@+id/accelerations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0"/>
 
@@ -96,7 +101,10 @@
         <EditText
             android:id="@+id/fetal_movement"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0"
           />
@@ -116,7 +124,10 @@
         <EditText
             android:id="@+id/uterine_contractions"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0" />
 
@@ -135,7 +146,10 @@
         <EditText
             android:id="@+id/light_decelerations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0" />
 
@@ -154,7 +168,10 @@
         <EditText
             android:id="@+id/severe_decelerations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0" />
 
@@ -173,7 +190,10 @@
         <EditText
             android:id="@+id/prolongued_decelerations"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0"/>
 
@@ -192,7 +212,10 @@
         <EditText
             android:id="@+id/abnormal_short_term_variability"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="6"/>
 
@@ -211,7 +234,10 @@
         <EditText
             android:id="@+id/mean_value_of_short_term_variability"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0" />
 
@@ -230,7 +256,10 @@
         <EditText
             android:id="@+id/percentage_of_time_with_abnormal_long_term_variability"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:minEms="0" />
 
@@ -249,7 +278,10 @@
         <EditText
             android:id="@+id/mean_value_of_long_term_variability"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="3"
+            android:padding="10dp"
+            android:background="@drawable/bg_edit_text"
             android:inputType="numberDecimal"
             android:visibility="gone"
             android:text="2"
@@ -516,10 +548,11 @@
 
 
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/analyze_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/bg"
             android:layout_gravity="center"
             android:text="Analyze" />
 

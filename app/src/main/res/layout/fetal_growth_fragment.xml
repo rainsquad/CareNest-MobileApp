@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FetalGrowthFragment">
+
+        <LinearLayout
+            android:id="@+id/linLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Fetal Development Tracker"
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:padding="20dp"
+                />
+<GridLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/txtFetalGrowth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Growth Tracker"
+        android:textStyle="bold"
+        android:textSize="15dp"
+        android:padding="20dp"
+        />
+    <LinearLayout
+        android:layout_toRightOf="@+id/txtFetalGrowth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        >
+
+
+        <TextView
+            android:id="@+id/txtFetalHealth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="center"
+            android:text="Health Tracker"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:paddingVertical="20dp"
+            />
+        <ImageView
+            android:layout_toRightOf="@+id/txtFetalHealth"
+            android:layout_width="25dp"
+            android:layout_height="40dp"
+            android:src="@drawable/icon_crown"
+
+            />
+    </LinearLayout>
+
+</GridLayout>
+            <TextView
+                android:id="@+id/txtSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Based on Your Inputs"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                android:padding="10dp"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:src="@drawable/fetal_growth"
+                android:scaleType="fitXY"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Select Trimester" />
+
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@drawable/bg_edit_text"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Baseline value" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Baseline Fetal Heart Rate (FHR) (beats per minute)"
+                    android:textColor="#0055FF"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/baseline_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:padding="10dp"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/bg_edit_text"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>

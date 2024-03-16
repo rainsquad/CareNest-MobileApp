@@ -12,4 +12,11 @@
         <item>Normal</item>
         <item>High</item>
     </string-array>
+
+    <string-array name="spinner_items">
+        <item>Value 1</item>
+        <item>Value 2</item>
+        <item>Value 3</item>
+        <!-- Add more items as needed -->
+    </string-array>
 </resources>

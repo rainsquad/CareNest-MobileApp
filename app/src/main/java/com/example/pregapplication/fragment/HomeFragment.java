@@ -1,18 +1,25 @@
 package com.example.pregapplication.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.example.pregapplication.DiseasesSuggestionFragment;
 import com.example.pregapplication.EmotionDetectionFragment;
 import com.example.pregapplication.FetalDevelopmentAndSuggestionFragment;
+import com.example.pregapplication.FetalGrowthFragment;
 import com.example.pregapplication.FoodSuggestionFragment;
 import com.example.pregapplication.R;
 
@@ -22,6 +29,8 @@ public class HomeFragment extends Fragment {
     EmotionDetectionFragment emotionDetectionFragment = new EmotionDetectionFragment();
     FetalDevelopmentAndSuggestionFragment fetalDevelopmentAndSuggestionFragment = new FetalDevelopmentAndSuggestionFragment();
     DiseasesSuggestionFragment diseasesSuggestionFragment = new DiseasesSuggestionFragment();
+
+    FetalGrowthFragment fetalGrowthFragment = new FetalGrowthFragment();
     FrameLayout layout;
 
     @Override
@@ -63,11 +72,12 @@ public class HomeFragment extends Fragment {
         fetalHealth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fetalDevelopmentAndSuggestionFragment)
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.container, fetalGrowthFragment)
                         .addToBackStack(null)  // Add to back stack if needed
                         .commit();
             }
         });
         return view;
     }
+
 }
