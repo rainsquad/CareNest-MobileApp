@@ -11,6 +11,8 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
@@ -21,7 +23,10 @@ public class FetalGrowthFragment extends Fragment {
         Spinner spinner;
         TextView growthTracker, healthTracker;
 
+        EditText etBPD, etHC,etAC,etFL;
         LinearLayout layout;
+
+        Button btnSubmit;
         FetalDevelopmentAndSuggestionFragment fetalDevelopmentAndSuggestionFragment = new FetalDevelopmentAndSuggestionFragment();
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -34,10 +39,15 @@ public class FetalGrowthFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fetal_growth_fragment, container, false);
-         spinner = v.findViewById(R.id.spinner);
-         layout = v.findViewById(R.id.linLayout);
-         growthTracker = v.findViewById(R.id.txtFetalGrowth);
-         healthTracker = v.findViewById(R.id.txtFetalHealth);
+        etBPD = v.findViewById(R.id.etBPD);
+        etHC = v.findViewById(R.id.etHC);
+        etAC = v.findViewById(R.id.etAC);
+        etFL = v.findViewById(R.id.etFL);
+        btnSubmit = v.findViewById(R.id.submit);
+        spinner = v.findViewById(R.id.spinner);
+        layout = v.findViewById(R.id.linLayout);
+        growthTracker = v.findViewById(R.id.txtFetalGrowth);
+        healthTracker = v.findViewById(R.id.txtFetalHealth);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
                 getContext(),
                 R.array.spinner_items,
@@ -59,9 +69,112 @@ public class FetalGrowthFragment extends Fragment {
             }
         });
 
+        btnSubmit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                calculateFetalWeight();
+            }
+        });
+
+
         return v;
     }
 
+
+    private void calculateFetalWeight() {
+        double bpd = Double.parseDouble(etBPD.getText().toString());
+        double hc = Double.parseDouble(etHC.getText().toString());
+        double ac = Double.parseDouble(etAC.getText().toString());
+        double fl = Double.parseDouble(etFL.getText().toString());
+
+        // Calculate fetal movement using formulas
+        double weight = calculateFetaWeight(bpd, hc, ac, fl);
+        System.out.println("Estimated fetal weight: " + weight + " grams");
+        // You can display the result or perform further actions with it
+        CreatepopUpwindowWeight(weight);
+
+    }
+    private double calculateFetaWeight(double bpd, double hc, double ac, double fl) {
+        // Hadlock formula constants
+        double a = 1.07;
+        double b = -0.015;
+        double c = -0.007;
+        double d = 0.0006;
+
+        // Calculate estimated fetal weight using Hadlock formula
+        double weight = a * Math.pow(ac, 2) * hc - b * Math.pow(ac, 2) * fl + c * Math.pow(ac, 3) - d * Math.pow(fl, 2) * bpd;
+
+        return weight;
+    }
+    private void CreatepopUpwindowWeight(Double weight) {
+
+        LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View popUpView = inflater.inflate(R.layout.popup_window_weight, null);
+
+
+        int width = ViewGroup.LayoutParams.MATCH_PARENT;
+        int height = ViewGroup.LayoutParams.MATCH_PARENT;
+
+        boolean focusable = true;
+        PopupWindow popupWindow = new PopupWindow(popUpView, width, height, focusable);
+
+
+        layout.post(new Runnable() {
+            @Override
+            public void run() {
+
+
+                popupWindow.showAtLocation(layout, Gravity.BOTTOM, 0, 0);
+
+
+            }
+        });
+
+
+        TextView Gotit,result,iconclose;
+
+
+        Gotit = popUpView.findViewById(R.id.Gotit);
+        result = popUpView.findViewById(R.id.txtResult);
+        iconclose = popUpView.findViewById(R.id.iconclose);
+        result.setText(String.valueOf(weight)+" grams");
+        Gotit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                popupWindow.dismiss();
+
+
+
+            }
+        });
+        iconclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                popupWindow.dismiss();
+
+
+            }
+        });
+//         and if you want to close popup when touch Screen
+        popUpView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+
+                popupWindow.dismiss();
+                return true;
+
+            }
+
+        });
+
+
+
+
+    }
     private void CreatepopUpwindow() {
 
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -125,18 +238,6 @@ public class FetalGrowthFragment extends Fragment {
             }
 
         });
-
-//        popUpView1.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                fadePopup.dismiss();
-//
-//                popupWindow.dismiss();
-//                return true;
-//
-//            }
-//
-//        });
 
 
 

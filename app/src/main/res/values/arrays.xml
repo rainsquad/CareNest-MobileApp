@@ -14,9 +14,9 @@
     </string-array>
 
     <string-array name="spinner_items">
-        <item>Value 1</item>
-        <item>Value 2</item>
-        <item>Value 3</item>
+        <item>1 - 12 weeks</item>
+        <item>12 -28 weeks</item>
+        <item>28 - 40 weeks</item>
         <!-- Add more items as needed -->
     </string-array>
 </resources>

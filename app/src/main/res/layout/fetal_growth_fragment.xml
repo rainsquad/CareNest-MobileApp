@@ -103,17 +103,39 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Baseline value" />
+                    android:text="BPD" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Baseline Fetal Heart Rate (FHR) (beats per minute)"
+                    android:text="Biparietal Diameter"
                     android:textColor="#0055FF"
                     android:textSize="13sp" />
 
                 <EditText
-                    android:id="@+id/baseline_value"
+                    android:id="@+id/etBPD"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:padding="10dp"
+
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/bg_edit_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HC" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Head Circumference"
+                    android:textColor="#0055FF"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etHC"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_weight="3"
@@ -121,6 +143,54 @@
                     android:inputType="numberDecimal"
                     android:background="@drawable/bg_edit_text"
                     />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="AC" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="abdominal circumference"
+                    android:textColor="#0055FF"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etAC"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:padding="10dp"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/bg_edit_text"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FL" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="femur length"
+                    android:textColor="#0055FF"
+                    android:textSize="13sp" />
+
+                <EditText
+                    android:id="@+id/etFL"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_weight="3"
+                    android:padding="10dp"
+                    android:inputType="numberDecimal"
+                    android:background="@drawable/bg_edit_text"
+                    />
+
+                <Button
+                    android:id="@+id/submit"
+                    android:text="ANALYZE"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 

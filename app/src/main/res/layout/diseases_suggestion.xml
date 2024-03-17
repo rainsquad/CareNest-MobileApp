@@ -1187,13 +1187,13 @@
                             android:visibility="gone"
                             />
 
-                        <androidx.appcompat.widget.AppCompatButton
+                        <Button
                             android:id="@+id/analyze_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:background="@drawable/bg"
-                            android:text="Analyze" />
+                            android:text="ANALYZE" />
                     </LinearLayout>
                 </ScrollView>
             </LinearLayout>

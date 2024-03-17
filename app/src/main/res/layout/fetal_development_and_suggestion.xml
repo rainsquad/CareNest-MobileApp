@@ -266,12 +266,14 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:visibility="gone"
             android:text="Mean value of long term variability" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Mean value of long term variability"
+            android:visibility="gone"
             android:textColor="#0055FF"
             android:textSize="13sp" />
 
@@ -499,6 +501,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:visibility="gone"
+
             android:layout_height="wrap_content"
             android:text="Histogram tendency" />
 
@@ -548,7 +551,7 @@
 
 
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/analyze_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
