@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.example.pregapplication.fragment.CommunityFragment;
 import com.example.pregapplication.fragment.HomeFragment;
+import com.example.pregapplication.fragment.MainMenuFragment;
 import com.example.pregapplication.fragment.SettingsFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
     HomeFragment homeFragment = new HomeFragment();
     SettingsFragment settingsFragment = new SettingsFragment();
+
+    MainMenuFragment mainMenuFragment = new MainMenuFragment();
     FrameLayout layout;
 
     @Override
@@ -56,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         layout = findViewById(R.id.container);
-        getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, mainMenuFragment).commit();
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem item) {
 
                 if(item.getItemId()==R.id.home)
                 {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.container, homeFragment).commit();
+                    getSupportFragmentManager().beginTransaction().replace(R.id.container, mainMenuFragment).commit();
                 }else if(item.getItemId()==R.id.community)
                 {
                     getSupportFragmentManager().beginTransaction().replace(R.id.container, communityFragment).commit();

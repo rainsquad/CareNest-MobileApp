@@ -205,6 +205,39 @@
                                 android:textStyle="bold" />
                         </RelativeLayout>
                     </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/crdEPDS"
+                        android:layout_width="400dp"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_vertical"
+
+                        >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:id="@+id/imgEPDS"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingHorizontal="40dp"
+                                android:src="@drawable/real_time_emotion" />
+
+                            <TextView
+                                android:id="@+id/txtEPDS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="casual"
+                                android:layout_alignParentBottom="true"
+                                android:gravity="center"
+                                android:text="Real Time Emotion Detection"
+                                android:textSize="20dp"
+                                android:textStyle="bold" />
+                        </RelativeLayout>
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>
 

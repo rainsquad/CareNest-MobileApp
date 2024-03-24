@@ -1,0 +1,613 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Design of the Main Menu-->
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/scrollid"
+    tools:context=".ScreenTestResutsActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <ImageView
+        android:id="@+id/imgBack"
+        android:layout_width="42dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="347dp"
+        android:background="@drawable/button_round_back"
+        android:outlineSpotShadowColor="@color/black"
+        android:padding="5dp"
+        android:src="@drawable/icon_back"
+    />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TEST RESULTS"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#8A8585"/>
+
+
+
+        <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/testpopup"
+                android:layout_width="match_parent"
+                android:layout_height="fill_parent"
+                android:orientation="vertical">
+
+
+                <GridLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:alignmentMode="alignMargins"
+                    android:columnCount="1"
+                    android:columnOrderPreserved="false"
+                    android:orientation="horizontal"
+                    android:rowCount="2"
+
+                    >
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="20dp"
+
+                        >
+
+                        <LinearLayout
+                            android:id="@+id/clickEPDS"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="left"
+                            android:orientation="vertical"
+                            android:padding="8dp">
+
+                            <TextView
+                                android:id="@+id/txtScore"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="YOUR SCORE IS :"
+                                android:textColor="#B71C1C"
+                                android:textSize="23sp"
+                                android:textStyle="bold">
+
+                            </TextView>
+
+                            <TextView
+                                android:id="@+id/txtResultsSuggest"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="left"
+                                android:padding="15dp"
+                                android:text=""
+                                android:textColor="@color/black"
+                                android:textSize="14sp">
+
+                            </TextView>
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        android:background="#808080"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="20dp"
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#666666"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+
+                                android:orientation="horizontal">
+
+                                <ImageView
+                                    android:layout_width="35dp"
+                                    android:layout_height="38dp"
+                                    android:background="@drawable/icon_thinkin_face"
+                                    android:padding="5dp" />
+
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="left"
+                                    android:foregroundGravity="top"
+                                    android:gravity="center"
+                                    android:text="WHAT SHOULD I DO NEXT?"
+                                    android:textColor="@color/white"
+                                    android:textSize="16sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/txtNextStep"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:padding="15dp"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="14sp" />
+
+                            <Button
+                                android:id="@+id/btnNextStep"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:background="@drawable/button_round"
+                                android:paddingLeft="20dp"
+                                android:paddingRight="20dp"
+                                android:text="CLICK HERE"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+
+
+                                />
+
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1"
+                        android:layout_margin="12dp"
+                        android:background="#87d3f8"
+                        app:cardCornerRadius="12dp"
+                        app:cardElevation="6dp"
+
+                        >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#87d3f8"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:text="GET HELP"
+                                android:textColor="#B71C1C"
+                                android:textStyle="italic" />
+
+                            <GridLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:alignmentMode="alignMargins"
+                                android:columnCount="1"
+                                android:columnOrderPreserved="false"
+                                android:orientation="horizontal"
+                                android:rowCount="6">
+
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:id="@+id/button"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:id="@+id/midvivesNawala"
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                                <androidx.cardview.widget.CardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_rowWeight="1"
+                                    android:layout_columnWeight="1"
+                                    android:layout_margin="12dp"
+                                    app:cardCornerRadius="12dp"
+                                    app:cardElevation="6dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:orientation="vertical"
+                                        android:padding="5dp">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                            <ImageView
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:background="@drawable/icon_call"
+                                                android:padding="15dp" />
+
+                                            <TextView
+                                                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"
+                                                android:gravity="center"
+                                                android:text="NATIONAL MATERNAL MENTAL HEALTH ONLINE"
+                                                android:textSize="14sp" />
+
+
+                                        </LinearLayout>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="left"
+                                            android:layout_marginStart="30dp"
+                                            android:background="@drawable/button_round_grey"
+                                            android:gravity="center"
+                                            android:paddingLeft="15dp"
+                                            android:paddingRight="15dp"
+                                            android:text="075 650 0123"
+                                            android:textColor="@color/white" />
+
+
+                                    </LinearLayout>
+                                </androidx.cardview.widget.CardView>
+
+                            </GridLayout>
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                </GridLayout>
+
+
+                <!--    Design of scroll down card view-->
+
+
+            </RelativeLayout>
+        </ScrollView>
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
