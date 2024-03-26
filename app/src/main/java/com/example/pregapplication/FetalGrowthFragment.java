@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -88,24 +89,32 @@ public class FetalGrowthFragment extends Fragment {
         double fl = Double.parseDouble(etFL.getText().toString());
 
         // Calculate fetal movement using formulas
-        double weight = calculateFetaWeight(bpd, hc, ac, fl);
+        double weight = calculateFetaWeight(ac,fl,bpd,hc);
         System.out.println("Estimated fetal weight: " + weight + " grams");
         // You can display the result or perform further actions with it
         CreatepopUpwindowWeight(weight);
 
     }
-    private double calculateFetaWeight(double bpd, double hc, double ac, double fl) {
-        // Hadlock formula constants
-        double a = 1.07;
-        double b = -0.015;
-        double c = -0.007;
-        double d = 0.0006;
 
-        // Calculate estimated fetal weight using Hadlock formula
-        double weight = a * Math.pow(ac, 2) * hc - b * Math.pow(ac, 2) * fl + c * Math.pow(ac, 3) - d * Math.pow(fl, 2) * bpd;
 
-        return weight;
-    }
+        public static double calculateFetaWeight(double ac, double fl, double bpd, double headCircumference) {
+            double efw = Math.pow(10, 1.335) - 0.0034 * ac * fl + 0.0316 * bpd + 0.0457 * headCircumference + 0.1623 * fl;
+            return efw;
+        }
+
+        public static void main(String[] args) {
+            // Sample fetal measurements
+            double ac = 20.5; // Abdominal circumference in cm
+            double fl = 5.7;  // Femur length in cm
+            double bpd = 3.2; // Biparietal diameter in cm
+            double headCircumference = 15.4; // Head circumference in cm
+
+            // Calculate estimated fetal weight
+            double estimatedFetalWeight = calculateFetaWeight(ac, fl, bpd, headCircumference);
+
+            Log.d("FetalWeightCalculator", "Estimated Fetal Weight: " + estimatedFetalWeight + " grams");
+        }
+
     private void CreatepopUpwindowWeight(Double weight) {
 
         LayoutInflater inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
