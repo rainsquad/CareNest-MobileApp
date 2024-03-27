@@ -31,6 +31,7 @@ import com.example.pregapplication.fragment.CommunityFragment;
 import com.example.pregapplication.fragment.HomeFragment;
 import com.example.pregapplication.fragment.MainMenuFragment;
 import com.example.pregapplication.fragment.SettingsFragment;
+import com.example.pregapplication.fragment.TrimesterSelection;
 import com.google.android.material.bottomnavigation.BottomNavigationMenuView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     CommunityFragment communityFragment = new CommunityFragment();
+
 
     HomeFragment homeFragment = new HomeFragment();
     SettingsFragment settingsFragment = new SettingsFragment();

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.TrimesterSelection">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/txtSubTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_toRightOf="@+id/back"
+            android:text="Second Trimester"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            />
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_back"
+
+
+            />
+        <ImageView
+            android:id="@+id/img"
+            android:layout_below="@+id/back"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:src="@drawable/trimesterselect"
+            android:scaleType="fitXY"
+            />
+        <TextView
+            android:id="@+id/trimesterTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Select the trimester"
+            android:textSize="18dp"
+            android:layout_below="@+id/img"
+            android:textStyle="bold"
+            android:paddingHorizontal="20dp"
+            />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_below="@+id/trimesterTitle"
+            android:layout_above="@+id/btnSubmit"
+            android:layout_marginHorizontal="20dp"
+
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ABCD"
+
+                    />
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ABCD"
+
+                    />
+                <CheckBox
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="ABCD"
+
+                    />
+            </LinearLayout>
+
+
+        </ScrollView>
+
+
+
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:padding="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginVertical="15dp"
+            />
+    </RelativeLayout>
+
+</FrameLayout>

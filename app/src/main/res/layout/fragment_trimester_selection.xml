@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.TrimesterSelection">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <TextView
+        android:id="@+id/txtSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+
+        android:text="Trimester Selection"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        />
+    <ImageView
+        android:id="@+id/img"
+        android:layout_below="@+id/txtSubTitle"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:src="@drawable/trimesterselect"
+        android:scaleType="fitXY"
+        />
+    <TextView
+        android:id="@+id/trimesterTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select the trimester"
+        android:textSize="18dp"
+        android:layout_below="@+id/img"
+        android:textStyle="bold"
+        android:paddingHorizontal="20dp"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@+id/trimesterTitle"
+
+        android:layout_marginHorizontal="20dp"
+
+        >
+        <Button
+            android:id="@+id/txtTri1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="First Trimester (week 1 to end of 12th weeks)"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_weight="0.5"
+            android:layout_below="@+id/trimesterTitle"
+            android:layout_marginVertical="20dp"
+
+            android:textColor="@color/white"
+
+            />
+        <Button
+            android:id="@+id/txtTri2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Second Trimester (week 13 to end of 27th weeks)"
+            android:textStyle="bold"
+            android:textSize="16dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_below="@+id/txtTri1"
+            android:layout_weight="0.5"
+            android:layout_marginVertical="20dp"
+
+            android:textColor="@color/white"
+
+            />
+        <Button
+            android:id="@+id/txtTri3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Third Trimester (week 28 to end of 40th weeks)"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_below="@+id/txtTri2"
+            android:layout_marginVertical="20dp"
+            android:layout_weight="0.5"
+
+            android:textColor="@color/white"
+
+            />
+    </LinearLayout>
+
+
+</RelativeLayout>
+
+</FrameLayout>

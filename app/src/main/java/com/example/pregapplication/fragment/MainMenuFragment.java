@@ -29,7 +29,7 @@ public class MainMenuFragment extends Fragment {
 
     FetalGrowthFragment fetalGrowthFragment = new FetalGrowthFragment();
     EmotionDetectionFragment emotionDetectionFragment = new EmotionDetectionFragment();
-
+    TrimesterSelection trimesterSelection = new TrimesterSelection();
     LinearLayout clickEPDS, clickFood, clickEmotions, clickFetal, clickDiseases;
 
     @Override
@@ -74,7 +74,7 @@ public class MainMenuFragment extends Fragment {
                 FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
                 transaction.setCustomAnimations(R.anim.enter_animation, R.anim.exit_animation, R.anim.enter_animation, R.anim.exit_animation);
                 // Replace the current fragment with the emotionDetectionFragment
-                transaction.replace(R.id.container, diseasesSuggestionFragment).commit();
+                transaction.replace(R.id.container, trimesterSelection).commit();
             }
         });
 
